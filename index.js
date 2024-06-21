@@ -15,6 +15,7 @@ const calculateOptimizedCost = (seats) => {
   seatOptions.sort((a, b) => a.cost / a.capacity - b.cost / b.capacity);
 
   for (let option of seatOptions) {
+    // the loop will break if there are no more remaining seats
     if (remainingSeats <= 0) break;
     const numUnits = Math.floor(remainingSeats / option.capacity);
     remainingSeats -= numUnits * option.capacity;
